@@ -1,0 +1,238 @@
+/* W35 Activity 05 — Widget Builder styles */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+
+/* Header */
+header { text-align: center; color: white; margin-bottom: 40px; }
+header h1 { font-size: 3em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); font-weight: 700; }
+header p { font-size: 1.3em; opacity: 0.9; font-weight: 300; }
+
+/* Widget Selector */
+.widget-selector {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+.widget-selector h2 { text-align: center; margin-bottom: 30px; color: #333; font-size: 2em; }
+
+.widget-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.widget-option {
+    background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 3px solid transparent;
+    cursor: pointer;
+}
+.widget-option:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    border-color: #667eea;
+}
+
+.widget-icon { font-size: 3em; margin-bottom: 15px; display: block; }
+.widget-option h3 { color: #333; margin-bottom: 10px; font-size: 1.4em; }
+.widget-option p { color: #666; margin-bottom: 20px; line-height: 1.5; }
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.btn-primary { background: #667eea; color: white; }
+.btn-primary:hover { background: #5a6fd8; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4); }
+.btn-secondary { background: #6c757d; color: white; }
+.btn-secondary:hover { background: #5a6268; }
+.btn-danger { background: #dc3545; color: white; }
+.btn-danger:hover { background: #c82333; }
+.btn-sm { padding: 8px 16px; font-size: 12px; }
+
+/* Widget Container */
+.widget-container {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+.widget-header {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.widget-header h2 { margin: 0; font-size: 1.8em; }
+.widget-controls { display: flex; gap: 10px; }
+.widget-content { padding: 30px; min-height: 300px; }
+
+/* Form elements */
+input, select {
+    font-family: inherit;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+input:focus, select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+label { font-weight: 600; color: #495057; display: block; }
+
+/* Weather */
+.weather-widget { display: flex; flex-direction: column; gap: 20px; }
+.weather-location { display: flex; gap: 10px; align-items: center; }
+.weather-location input { flex: 1; }
+.weather-display {
+    background: linear-gradient(135deg, #74b9ff, #0984e3);
+    color: white;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+}
+.weather-main { margin-bottom: 20px; }
+.weather-temp { font-size: 4em; font-weight: bold; margin: 20px 0; }
+.weather-description { font-size: 1.3em; text-transform: capitalize; opacity: 0.9; }
+.weather-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+.weather-detail { background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; }
+
+/* Crypto */
+.crypto-widget { display: flex; flex-direction: column; gap: 20px; }
+.crypto-controls { display: flex; gap: 10px; align-items: center; }
+.crypto-controls input { flex: 1; }
+.crypto-display {
+    background: linear-gradient(135deg, #f6d365, #fda085);
+    color: #2d2d2d;
+    border-radius: 12px;
+    padding: 30px;
+}
+.crypto-table { width: 100%; border-collapse: collapse; font-size: 1.05em; }
+.crypto-table th, .crypto-table td { padding: 12px 16px; text-align: left; }
+.crypto-table thead { background: rgba(255,255,255,0.4); }
+.crypto-table tbody tr:nth-child(even) { background: rgba(255,255,255,0.2); }
+.crypto-table .coin-id { text-transform: capitalize; font-weight: 600; }
+.crypto-table .gain { color: #1b6e2c; font-weight: 600; }
+.crypto-table .loss { color: #a4271c; font-weight: 600; }
+
+/* News */
+.news-widget { display: flex; flex-direction: column; gap: 20px; }
+.news-controls { display: flex; gap: 15px; align-items: center; flex-wrap: wrap; }
+.news-controls input { width: 80px; flex: 0 0 auto; }
+.news-display {
+    background: #fefefe;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    padding: 20px 30px;
+}
+.news-list { list-style: decimal inside; padding: 0; margin: 0; }
+.news-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #e9ecef;
+    line-height: 1.5;
+}
+.news-item:last-child { border-bottom: none; }
+.news-item a {
+    color: #2c3e50;
+    text-decoration: none;
+    font-weight: 600;
+}
+.news-item a:hover { color: #667eea; text-decoration: underline; }
+.news-item small { display: block; color: #888; margin-top: 4px; font-weight: normal; }
+
+/* Quotes */
+.quotes-widget { display: flex; flex-direction: column; gap: 20px; align-items: center; }
+.quotes-controls { display: flex; gap: 10px; align-items: center; }
+.quotes-display {
+    background: linear-gradient(135deg, #a29bfe, #6c5ce7);
+    color: white;
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+    width: 100%;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.quote-text { font-size: 1.5em; font-style: italic; margin-bottom: 20px; line-height: 1.4; }
+.quote-author { font-size: 1.1em; opacity: 0.85; }
+
+/* Loading + error */
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    color: #999;
+    font-style: italic;
+}
+.loading::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(0,0,0,0.15);
+    border-top: 2px solid rgba(0,0,0,0.6);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 10px;
+}
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+.error {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+.error h3 { margin-bottom: 10px; }
+.error p { opacity: 0.95; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container { padding: 10px; }
+    header h1 { font-size: 2em; }
+    .widget-options { grid-template-columns: 1fr; }
+    .widget-header { flex-direction: column; gap: 15px; text-align: center; }
+    .widget-controls { justify-content: center; }
+    .weather-location, .crypto-controls, .news-controls, .quotes-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}

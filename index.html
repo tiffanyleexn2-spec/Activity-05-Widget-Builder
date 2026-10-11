@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Widget Builder - Real Public APIs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧩 API Widget Builder</h1>
+            <p>Compose four real public APIs into a single dashboard</p>
+        </header>
+
+        <div class="widget-selector">
+            <h2>Choose a Widget</h2>
+            <div class="widget-options">
+                <div class="widget-option" data-widget="weather">
+                    <div class="widget-icon">🌤️</div>
+                    <h3>Weather</h3>
+                    <p>Live current conditions for any city via wttr.in</p>
+                    <button class="btn btn-primary" onclick="loadWidget('weather')">Build Weather Widget</button>
+                </div>
+
+                <div class="widget-option" data-widget="crypto">
+                    <div class="widget-icon">🪙</div>
+                    <h3>Crypto Prices</h3>
+                    <p>USD prices and 24h change via CoinGecko</p>
+                    <button class="btn btn-primary" onclick="loadWidget('crypto')">Build Crypto Widget</button>
+                </div>
+
+                <div class="widget-option" data-widget="news">
+                    <div class="widget-icon">📰</div>
+                    <h3>Hacker News</h3>
+                    <p>Top stories via the public Hacker News API</p>
+                    <button class="btn btn-primary" onclick="loadWidget('news')">Build News Widget</button>
+                </div>
+
+                <div class="widget-option" data-widget="quotes">
+                    <div class="widget-icon">💭</div>
+                    <h3>Random Quote</h3>
+                    <p>One random quote per click via DummyJSON</p>
+                    <button class="btn btn-primary" onclick="loadWidget('quotes')">Build Quote Widget</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="widgetContainer" class="widget-container" style="display: none;">
+            <div class="widget-header">
+                <h2 id="widgetTitle">Widget Title</h2>
+                <div class="widget-controls">
+                    <button onclick="refreshWidget()" class="btn btn-secondary">🔄 Refresh</button>
+                    <button onclick="closeWidget()" class="btn btn-danger">✕ Close</button>
+                </div>
+            </div>
+
+            <div id="widgetContent" class="widget-content">
+                <!-- Active widget gets cloned in here -->
+            </div>
+        </div>
+
+        <!-- Widget Templates (cloned into #widgetContent on demand) -->
+        <div id="widgetTemplates" style="display: none;">
+
+            <!-- Weather Widget Template -->
+            <div class="widget-template" data-widget="weather">
+                <div class="weather-widget">
+                    <div class="weather-location">
+                        <input type="text" id="weatherCity" placeholder="Enter city name" value="London">
+                        <button onclick="updateWeather()" class="btn btn-sm">Get Weather</button>
+                    </div>
+                    <div id="weatherDisplay" class="weather-display">
+                        <div class="loading">Loading weather data...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Crypto Widget Template -->
+            <div class="widget-template" data-widget="crypto">
+                <div class="crypto-widget">
+                    <div class="crypto-controls">
+                        <input type="text" id="cryptoIds" placeholder="bitcoin,ethereum,solana" value="bitcoin,ethereum,solana">
+                        <button onclick="updateCrypto()" class="btn btn-sm">Get Prices</button>
+                    </div>
+                    <div id="cryptoDisplay" class="crypto-display">
+                        <div class="loading">Loading crypto prices...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- News Widget Template -->
+            <div class="widget-template" data-widget="news">
+                <div class="news-widget">
+                    <div class="news-controls">
+                        <label>How many stories?
+                            <input type="number" id="newsCount" min="3" max="20" value="10">
+                        </label>
+                        <button onclick="updateNews()" class="btn btn-sm">Refresh Top Stories</button>
+                    </div>
+                    <div id="newsDisplay" class="news-display">
+                        <div class="loading">Loading top stories...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quotes Widget Template -->
+            <div class="widget-template" data-widget="quotes">
+                <div class="quotes-widget">
+                    <div class="quotes-controls">
+                        <button onclick="getNewQuote()" class="btn btn-sm">New Quote</button>
+                    </div>
+                    <div id="quotesDisplay" class="quotes-display">
+                        <div class="loading">Loading random quote...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
